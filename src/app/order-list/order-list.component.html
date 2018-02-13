@@ -1,0 +1,75 @@
+
+<div class="row other">
+  <div class="col-6">
+    <h3>Your Order</h3>
+    <div *ngIf = "pizzaS != ''">
+      <p>  Selected Size:  {{pizzaS}} </p>
+      <p> Selected Crust:  {{pizzaC}} </p>
+      <p> Selected Sauce: {{pizzaSauce}} </p>
+      <p>Selected Toppings: <span *ngFor = "let top of pizzaTopp">{{top}},&nbsp; </span></p>
+    </div>
+  </div>
+    <div class = "col-6">
+      <h4>Personal Information</h4>
+      <form (ngSubmit) = "onSubmit(ob)" #ob = "ngForm" novalidate>
+          <div class="form-group">Delivery Method <br/>
+            <div class="radio"*ngFor = "let d of deliveryMethod">
+                <label>
+                  <input type = "radio" name = "deliveryMethod" ngModel [value] = "d" required 
+                  (click) = selectedMethod(d)> {{d}}
+                </label>
+          
+            </div>                    
+          </div>
+          <div id="user-info" ngModelGroup="userInfo" #userInfo="ngModelGroup">
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input type="text" id = "fullName" class = "form-control"
+               ngModel name="fullName" required #name = "ngModel"  pattern="[a-zA-Z ]*">
+               <span class = "help-block" *ngIf = "!name.valid && name.touched">Please enter a valid name!</span>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id = "email" class = "form-control"
+               ngModel name = "email" required email #email="ngModel"  pattern="[[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$]*">
+              <span class = "help-block" *ngIf = "!email.valid && email.touched">Please enter a valid email!</span>
+            </div>
+            <div class="form-group">
+                <label for="telephone">Phone Number</label>
+                <input type="tel" id = "tel" class = "form-control"
+                 ngModel name = "tel" required tel #tel="ngModel"  pattern="[1-9 ]*">
+                <span class = "help-block" *ngIf = "!tel.valid && tel.touched">Please enter a phone number!</span>
+              </div>
+          </div>
+          <p class = "help-block" *ngIf="!userInfo.valid && userInfo.touched">Please complete your personal info...</p>
+          <div *ngIf = "d_method == 'Delivery'">
+          <div class="form-group">
+              <label for="street">Enter street address</label>
+              <input type="text" id = "text" class = "form-control"
+               ngModel name = "street" required  #street="ngModel"   pattern="[a-zA-Z 0-9]*">
+              <span class = "help-block" *ngIf = "!street.valid && street.touched">Please enter a valid street address!</span>
+          </div>
+          <div class="form-group">
+              <label for="City">City</label>
+              <input type="text" id = "text" class = "form-control"
+               ngModel name = "city" required  #city="ngModel"  pattern="[a-zA-Z]*">
+              <span class = "help-block" *ngIf = "!street.valid && street.touched">Please enter a valid city!</span>
+          </div>
+       
+        
+              
+                <div class="form-group">
+                    <label for="postalCode">Postal Code</label>
+                    <input type="text" id = "postalCode" class = "form-control"  #postalCode = "ngModel"
+                     pattern = "[a-zA-Z 0-9]*"
+                    ngModel name="postalCode" required>
+                  <span class = "help-block" *ngIf = "!postalCode.valid && postalCode.touched">Please enter a valid postal code!</span>
+                </div>
+          </div>
+      
+           <button class = "btn btn-primary" type = "submit"  [disabled] = "!ob.valid">Submit</button>
+        </form>
+    </div>
+  </div>
+

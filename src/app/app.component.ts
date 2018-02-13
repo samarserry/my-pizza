@@ -5,6 +5,15 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   title = 'app';
+  loadedTab = "home";
+
+
+  
+  onNavigate(tab: string){
+    this.loadedTab = tab;
+  }
+
 }

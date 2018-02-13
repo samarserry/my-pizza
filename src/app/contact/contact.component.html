@@ -1,0 +1,25 @@
+
+    <div class = "row other">
+
+      <div class="col-5">
+        <h2>Get in touch...</h2>
+        <div><label for="phone">Phone: </label> 613-111-1111</div>
+       <div> <label for="Email">Email: </label> <a href="mailto:mail@pizza.com">mail@pizza.com</a> </div>
+       <div> <label for="Address">Our Location</label>
+        <p style = "font-weight: bold">OTTAWA <i class="fa fa-map-marker" style = " font-size: 35px;
+          color: #D12B19;"></i>
+
+        </p>
+        <p >50 Rideau St, Ottawa, ON K1N 9J7</p>
+      </div></div>
+      <div class="col-7">
+          <agm-map [latitude]="lat" [longitude]="lng">
+              <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+             
+            </agm-map>
+      </div>
+    
+
+
+
+  </div>

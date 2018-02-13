@@ -1,0 +1,78 @@
+
+
+.toppings{
+    display: inline-block;
+    padding: 4px 10px 5px 1px;
+    text-align: center;
+    height: 10%;
+    margin: 5px; 
+   /* border: 1px solid gray; */
+    border-radius: 3px;
+}
+ .toppings:hover { 
+    background-color:#dc3545;
+    font-weight: bold;
+    color: #fff;
+    box-shadow: 1px 1px gray;
+    cursor: pointer;
+} 
+.top-edit {
+	position: relative;
+    display: inline-block;
+    padding: 1px;
+   
+}
+.top-edit:hover{
+    font-weight: bold;
+    box-shadow: 1px  gray;
+    cursor: pointer;
+}
+
+.top-edit:hover .edits {
+    display: inline-block;
+    color:#dc3545;
+     
+}
+
+.edits {
+	
+    position: absolute;
+    bottom: 18px;
+    right: 0;
+	display: none;
+}
+
+
+
+.outerDiv{
+    padding: 10px; 
+    margin: 10px;
+    border: 1px solid #D3D3D3;
+    box-shadow: 2px 2px gray;
+    border-radius: 2px;
+    background-color: #fff;
+}
+.outerDiv:hover {
+    background-color:rgba(199, 199, 194, 0.541);
+    color: black;
+}
+.selection{
+    margin: 20px;
+    padding: 10px;
+}
+.custom-i{
+    padding: 3px;
+}
+
+.delete{
+    color:gray;
+}
+.delete:hover { 
+    color:red;
+  
+}
+.centerB{
+    text-align: center;
+    padding: 10px;
+   
+}

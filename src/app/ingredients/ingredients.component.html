@@ -1,0 +1,83 @@
+<div class = "row other" >
+    <div class = "col-md-8" >
+        <h2>Customize your Pizza...</h2>
+ 
+                 <div class="outerDiv" >
+                    <h5>Step 1: Choose your Pizza Size</h5>
+                   
+                    <div  *ngFor = "let i of ing">
+                            <span class="toppings" *ngFor = "let s of i.size" (click) = "selectedSize(s)">- {{s}}
+                            </span>
+                            
+                    </div>
+                </div>
+                    <div class="outerDiv" >
+                        <h5>Step 2: Choose your Crust</h5>
+                      
+                        <div  *ngFor = "let i of ing">
+                                <span class="toppings" *ngFor = "let c of i.crust" (click) = "selectedCrust(c)">- {{c}}
+                                </span>
+                                
+                        </div>
+                    </div>
+                    <div class="outerDiv" >
+                        <h5>Step 3: Select your Sauce</h5>
+                        
+                        <div  *ngFor = "let i of ing">
+                                <span class="toppings" *ngFor = "let sau of i.sauce" (click) = "selectedSau(sau)">- {{sau}}
+                                </span>
+                                
+                        </div>
+                    </div>
+
+
+
+                    <div class="outerDiv" >
+                        <h5>Step 4: Cheeezeee</h5>
+                            
+                            <div  *ngFor = "let i of ing">
+                                    <span class="toppings" *ngFor = "let che of i.cheese" (click) = "selectedTop(che)">- {{che}}
+                                    </span>
+                                    
+                            </div>
+                                
+                    </div>
+                   
+                    <div class="outerDiv" >
+                        <h5>Step 5: Veggie/Meat Toppings:</h5>
+                          
+                           
+                                <div  *ngFor = "let i of ing">
+                                        <span class="toppings" *ngFor = "let top of i.toppings" (click) = "selectedTop(top)">- {{top}}
+                                        </span>
+                                        
+                                </div>
+                                  
+                                
+                                
+                    </div>                                
+    </div>
+    
+    <div class= "col-md-4 " *ngIf = "!submitted">
+            <h2>Your Pizza</h2>
+           
+           <p *ngIf = "pizzaSize != '' ">Size: {{pizzaSize}}</p>
+           <p *ngIf = "pizzaCrust != '' ">Crust: {{pizzaCrust}}</p>
+           <p *ngIf = "pizzaSau != '' ">Sauce: {{pizzaSau}}</p>
+          <span *ngIf = "CustomizedPizza != '' ">Toppings: </span> <span class="top-edit" *ngFor = "let i of CustomizedPizza" (click) = "deleteTop(i)"> {{i}}&nbsp;
+                <i class=" edits fa fa-times fa-lg"></i>
+                
+
+
+            </span>
+            <div *ngIf = "ToppingAdded" style = "color: red">{{recentTop}} already added!</div>
+
+
+        <br/>
+        
+          <div class = "centerB" *ngIf = "CustomizedPizza != '' && pizzaSize != '' && pizzaCrust != '' && pizzaSau != '' && CustomizedPizza != '' ">  
+            
+           <button  class = "btn btn-danger" (click) = "AddOrder(pizzaSize,pizzaCrust,pizzaSau,CustomizedPizza,quantity)" >Add to Order</button>
+           <div>{{msg}}</div>
+        </div>
+        </div>
